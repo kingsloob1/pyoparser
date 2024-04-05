@@ -1,5 +1,5 @@
-pydparser/files/*
-pydparser/data
+pyoparser/files/*
+pyoparser/data
 notebooks/*
 tests/*
 output
@@ -9,5 +9,5 @@ hidereadme.md
 build
 dist
 setup.py
-pydparser.egg-info
+pyoparser.egg-info
 .idea

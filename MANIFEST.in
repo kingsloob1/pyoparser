@@ -1,1 +1,4 @@
-include pydparser/*.csv
+include pyoparser/*.csv
+include README.md
+
+recursive-include pyoparser *

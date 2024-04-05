@@ -1,11 +1,11 @@
-# pydparser
+# pyoparser
 
 ```
 A simple resume and job description parser used for extracting information from resumes and job descriptions.
 It also allows you to compare a set of resumes with a job description. 
 ```
 
-Built with ❤️ by [Justice Arthur](https://github.com/justicea83) and inspired by  [Omkar Pathak](https://github.com/OmkarPathak/pydparser)
+Built with ❤️ by [Okafor Obinna](https://github.com/kingsloob1) and inspired by  [Justice Arthur](https://github.com/justicea83)
 
 
 # Features
@@ -28,7 +28,7 @@ Built with ❤️ by [Justice Arthur](https://github.com/justicea83) and inspire
 - You can install this package using
 
 ```bash
-pip install pydparser
+pip install https://github.com/kingsloob1/pyoparser.git
 ```
 
 - For NLP operations we use spacy and nltk. Install them using below commands:
@@ -54,17 +54,17 @@ python -m nltk.downloader stopwords
 - Import it in your Python project
 
 ```python
-from pydparser import ResumeParser
+from pyoparser import ResumeParser
 data = ResumeParser('/path/to/resume/file').get_extracted_data()
 ```
 
 ```python
-from pydparser import JdParser
+from pyoparser import JdParser
 data = JdParser('/path/to/jd/file').get_extracted_data()
 ```
 
 ```python
-from pydparser import MatchingEngine
+from pyoparser import MatchingEngine
 matcher = MatchingEngine(
     '/path/to/jd/file',
     [
@@ -89,7 +89,7 @@ res = matcher.jaccard_similarity_score()
 For running the resume extractor you can also use the `cli` provided
 
 ```bash
-usage: pydparser [-h] [-f FILE] [-d DIRECTORY] [-r REMOTEFILE]
+usage: pyoparser-resumeparser [-h] [-f FILE] [-d DIRECTORY] [-r REMOTEFILE]
                    [-re CUSTOM_REGEX] [-sf SKILLSFILE] [-e EXPORT_FORMAT]
 
 optional arguments:

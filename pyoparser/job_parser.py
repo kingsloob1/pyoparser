@@ -4,14 +4,12 @@ import io
 import spacy
 import pprint
 from spacy.matcher import Matcher
-from pydparser import utils
+from pyoparser import utils
 
 
 class JdParser(object):
     def __init__(self, jd, skills_file=None, custom_regex=None):
-        print('Spacy model is loading...')
         nlp = spacy.load('en_core_web_sm')
-
         current_directory = os.path.dirname(os.path.abspath(__file__))
 
         custom_nlp = spacy.load(os.path.join(current_directory, 'models', 'jd_model'))

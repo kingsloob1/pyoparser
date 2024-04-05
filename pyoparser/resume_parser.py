@@ -4,7 +4,7 @@ import io
 import spacy
 import pprint
 from spacy.matcher import Matcher
-from pydparser import utils
+from pyoparser import utils
 
 
 class ResumeParser(object):
@@ -14,7 +14,6 @@ class ResumeParser(object):
             skills_file=None,
             custom_regex=None
     ):
-        print('Spacy model is loading...')
         nlp = spacy.load('en_core_web_sm')
         current_directory = os.path.dirname(os.path.abspath(__file__))
 
