@@ -8,6 +8,5 @@ venv
 hidereadme.md
 build
 dist
-setup.py
 pyoparser.egg-info
 .idea
