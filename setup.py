@@ -5,7 +5,7 @@ here = path.abspath(path.dirname(__file__))
 
 setup(
     name='pyoparser',
-    version='1.0.0',
+    version='1.0.1',
     description='A simple resume parser, JD parser and JD to resume matcher',
     long_description='',
     url='https://github.com/kingsloob1/pyoparser',
