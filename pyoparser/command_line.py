@@ -7,9 +7,9 @@ from pprint import pprint
 import io
 import sys
 import multiprocessing as mp
-import urllib
-from urllib.request import Request, urlopen
+import requests
 from pyoparser import ResumeParser
+import tempfile
 
 
 def print_cyan(text):
@@ -153,13 +153,27 @@ class ResumeParserCli(object):
     ):
         try:
             print_cyan('Extracting data from: {}'.format(remote_file))
-            req = Request(remote_file, headers={'User-Agent': 'Mozilla/5.0'})
-            webpage = urlopen(req).read()
-            _file = io.BytesIO(webpage)
-            _file.name = remote_file.split('/')[-1]
-            resume_parser = ResumeParser(_file, skills_file, custom_regex)
+            headers={'User-Agent': 'Mozilla/5.0'}
+            headResp = requests.head(remote_file, headers=headers)
+            contentLength = int(headResp.headers['content-length'])
+            
+            if contentLength > 104857600: 
+                raise Exception("Remote file must be less than 100 Mega Bytes")
+            
+            filename = remote_file.split('/')[-1]
+            fileResp = requests.get(remote_file, headers=headers)
+            fileBuffer = io.BytesIO()
+            fileBuffer.write(fileResp.content)
+            fileBuffer.seek(0)
+            fileBuffer.name = filename
+
+            resume_parser = ResumeParser(fileBuffer, skills_file, custom_regex)
             return [resume_parser.get_extracted_data()]
-        except urllib.error.HTTPError:
+        
+        except Exception as e:
+            print(e)
+            sys.exit(1)
+        except:
             print('File not found. Please provide correct URL for resume file')
             sys.exit(1)
 
