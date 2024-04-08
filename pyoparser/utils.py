@@ -162,13 +162,16 @@ def extract_text(file_path, extension):
     :param extension: extension of file `file_name`
     """
     text = ''
-    if extension == '.pdf':
-        for page in extract_text_from_pdf(file_path):
-            text += ' ' + page
-    elif extension == '.docx':
+    if extension == '.docx':
         text = extract_text_from_docx(file_path)
     elif extension == '.doc':
         text = extract_text_from_doc(file_path)
+    else:
+        try:
+            for page in extract_text_from_pdf(file_path):
+                text += ' ' + page
+        except:
+            text = ''
     return text
 
 
