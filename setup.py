@@ -31,7 +31,7 @@ setup(
         'jsonschema>=4.20.0',
         'nltk>=3.8.1',
         'pandas>=2.1.4',
-        'pdfminer.six>=20221105',
+        'pdfminer.six>=20191110',
         'plac>=1.4.2',
         'python-dateutil>=2.8.2',
         'requests>=2.31.0',
